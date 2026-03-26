@@ -1,0 +1,34 @@
+/ {
+    chosen {
+        zmk,display = &ssd1306;
+    };
+
+    encoders {
+        compatible = "zmk,encoders";
+
+        encoder_left: encoder_left {
+            a-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>; // D21
+            b-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>; // D22
+        };
+    };
+};
+
+&i2c0 {
+    status = "okay";
+    sda-pin = <8>;   // D2
+    scl-pin = <17>;  // D3
+
+    ssd1306: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3C>;
+        width = <128>;
+        height = <32>;
+    };
+};
+
+&led_strip {
+    status = "okay";
+    chain-length = <72>;
+    color-mapping = <LED_COLOR_ID_RGB>;
+    pin = <6>; // D1
+};
