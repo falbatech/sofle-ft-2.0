@@ -28,7 +28,7 @@
 
 &led_strip {
     status = "okay";
-    chain-length = <72>;
+    chain-length = <36>;
     color-mapping = <LED_COLOR_ID_RGB>;
     pin = <6>; // D1
 };
