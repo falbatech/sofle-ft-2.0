@@ -1,0 +1,17 @@
+/ {
+    encoders {
+        compatible = "zmk,encoders";
+
+        encoder_right: encoder_right {
+            a-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
+            b-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
+        };
+    };
+};
+
+&led_strip {
+    status = "okay";
+    chain-length = <36>;
+    color-mapping = <LED_COLOR_ID_RGB>;
+    pin = <6>;
+};
